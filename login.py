@@ -3,7 +3,7 @@ from Tkinter import *
 import xml.etree.ElementTree as ET  #使用ElementTree来遍历xml文件方面又快捷O(∩_∩)O哈哈哈~
 import tkMessageBox
 
-global whosLog  # 接收成功登陆的用户的用户名
+whosLog = '' # 接收成功登陆的用户的用户名
 
 class Login(): # 设置一个label和Entry的组合
   def __init__(self, master):
