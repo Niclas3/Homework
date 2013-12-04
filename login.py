@@ -3,7 +3,11 @@ from Tkinter import *
 import xml.etree.ElementTree as ET  #使用ElementTree来遍历xml文件方面又快捷O(∩_∩)O哈哈哈~
 import tkMessageBox
 
-whosLog = '' # 接收成功登陆的用户的用户名
+whosLog = 'niclas' # 接收成功登陆的用户的用户名
+
+def setwhosLog(name):
+  global whosLog
+  whosLog = name
 
 class Login(): # 设置一个label和Entry的组合
   def __init__(self, master):
@@ -42,14 +46,11 @@ def getInfo():    #获得用户名和密码
     name = login.NameEntry.get()
     pwd  = password.PassEntry.get()
     
-    #print "name: ", name, " password: ",pwd
+    print "name: ", name, " password: ",pwd
+    CheckUser(name, pwd)
 
-    whosLog = findUser(name, pwd)
-
-def printFriend():
-    tkMessageBox.showinfo("Some one name...","hello world")
-
-def findUser(name, pwd):
+def CheckUser(name, pwd):
+    global whosLog  # 这里添加了global之后就能优先访问全局变量了
     count = 0    # 遍历完毕xml文件后在确定有无用户
     tree = ET.ElementTree(file='./login.xml') # 文件目录记得更改
     root = tree.getroot()
@@ -59,20 +60,18 @@ def findUser(name, pwd):
         count+=1
     if count == 0:
       tkMessageBox.showerror("ERROR","请输入正确的用户名")
-      return None
+      whosLog = ' '
 
     for elem in tree.iter(tag='name'):
       if elem.text == name:
         if elem.attrib['password'] == pwd:
+          whosLog = name
           tkMessageBox.showinfo("wellcome.","O(∩_∩)O哈哈~·")
-          return name
         else:
           tkMessageBox.showerror("Error ","请检查您的密码")
-          return None
+          whosLog = ' '
       else:
         continue
-    return None
-
 
 win = Tk()
 win.title('Login')
