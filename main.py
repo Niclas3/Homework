@@ -47,11 +47,11 @@ mainWin = Tk()
 
 lstBox = Listbox(mainWin)
 # 这里是ListBox的填充内容
-listcont = getDateFromxml(user)
+listcont = getDateFromxml('niclas')  # 这里传入从login里面获得的用户名
 lenFriend = len(getDateFromxml('niclas')) +1
 
 for i in range(1,lenFriend):
-  lstBox.insert(i,i*"h")
+  lstBox.insert(i,listcont[i-1][0]+"\t"+listcont[i-1][1])
 lstBox.pack()
 
 ed = EditButtons(mainWin)
