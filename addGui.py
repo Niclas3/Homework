@@ -16,6 +16,18 @@ def setFriends():   #在这个函数里面写xml
   friendnumb  = numbEntry.entry.get()
   friendemail = emailEntry.entry.get()
 
+  tree = ET.ElementTree(file='./data.xml')
+  root = tree.getroot()
+  owner = 'niclas'
+  for branch in root:
+    if branch.attrib['name'] == owner:
+      adder = ET.SubElement(branch,'name')
+      adder.text = friendname
+      adder.attrib={'email':friendemail,'number':friendnumb}
+      tree.write('./data.xml')
+
+  print friendname, friendnumb, friendemail
+
 main = Tk()
 main.title('Add friend')
 nameEntry = AddGui(main, 'name')
@@ -25,4 +37,5 @@ emailEntry = AddGui(main, 'e-mail')
 subBut = Button(main, text='Sub', width=12, command = setFriends)
 subBut.pack()
 main.mainloop()
+
 
