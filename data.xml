@@ -1,33 +1,32 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
 <begin>
-<owner name = 'niclas'>
-<name number = "13877837384" email = "xxxx@qq.com"> niclas </name>
-<name number = "13347837384" email = "bcxxxx@qq.com"> chelsea</name>
-<name number = "13876837884" email = "xuioxxx@qq.com"> xiaom</name>
-<name number = "13877837384" email = "xxmcaxx@qq.com"> haha</name>
-<name number = "13877837384" email = "xfafdxxx@qq.com"> nihao </name>
-<name number = "13877837384" email = "xxxx@hotmail.com"> Nicy</name>
-<name number = "13877837384" email = "xxxx@gmail.com"> niclas </name>
-<name number = "13877837384" email = "xxxx@qq.com"> niclas </name>
-<name number = "13877837384" email = "xxxx@qq.com"> niclas </name>
-<name number = "13877837384" email = "xxxx@qq.com"> niclas </name>
-<name number = "13347837384" email = "bcxxxx@qq.com"> chelsea</name>
-<name number = "13876837884" email = "xuioxxx@qq.com"> xiaom</name>
-<name number = "13877837384" email = "xxmcaxx@qq.com"> haha</name>
-<name number = "13347837384" email = "bcxxxx@qq.com"> chelsea</name>
-<name number = "13876837884" email = "xuioxxx@qq.com"> xiaom</name>
-<name number = "13877837384" email = "xxmcaxx@qq.com"> haha</name>
-<name number = "13347837384" email = "bcxxxx@qq.com"> chelsea</name>
-<name number = "13876837884" email = "xuioxxx@qq.com"> xiaom</name>
-<name number = "13877837384" email = "xxmcaxx@qq.com"> haha</name>
-</owner>
-<owner name = 'chelsea'>
-<name number = "13877837384" email = "xxxx@qq.com"> niclas </name>
-<name number = "13347837384" email = "bcxxxx@qq.com"> chelsea</name>
-<name number = "13876837884" email = "xuioxxx@qq.com"> xiaom</name>
-<name number = "13877837384" email = "xxmcaxx@qq.com"> haha</name>
-<name number = "13877837384" email = "xfafdxxx@qq.com"> nihao </name>
-<name number = "13877837384" email = "xxxx@hotmail.com"> Nicy</name>
-<name number = "13877837384" email = "xxxx@gmail.com"> niclas </name>
+<owner name="niclas">
+<name email="xxxx@qq.com" number="13877837384"> niclas </name>
+<name email="bcxxxx@qq.com" number="13347837384"> chelsea</name>
+<name email="xuioxxx@qq.com" number="13876837884"> xiaom</name>
+<name email="xxmcaxx@qq.com" number="13877837384"> haha</name>
+<name email="xfafdxxx@qq.com" number="13877837384"> nihao </name>
+<name email="xxxx@hotmail.com" number="13877837384"> Nicy</name>
+<name email="xxxx@gmail.com" number="13877837384"> niclas </name>
+<name email="xxxx@qq.com" number="13877837384"> niclas </name>
+<name email="xxxx@qq.com" number="13877837384"> niclas </name>
+<name email="xxxx@qq.com" number="13877837384"> niclas </name>
+<name email="bcxxxx@qq.com" number="13347837384"> chelsea</name>
+<name email="xuioxxx@qq.com" number="13876837884"> xiaom</name>
+<name email="xxmcaxx@qq.com" number="13877837384"> haha</name>
+<name email="bcxxxx@qq.com" number="13347837384"> chelsea</name>
+<name email="xuioxxx@qq.com" number="13876837884"> xiaom</name>
+<name email="xxmcaxx@qq.com" number="13877837384"> haha</name>
+<name email="bcxxxx@qq.com" number="13347837384"> chelsea</name>
+<name email="xuioxxx@qq.com" number="13876837884"> xiaom</name>
+<name email="xxmcaxx@qq.com" number="13877837384"> haha</name>
+<name email="nicda@gmail.com" number="123241234`">thao</name><name email="niaf@hotmail.com" number="1242345">liangkang</name></owner>
+<owner name="chelsea">
+<name email="xxxx@qq.com" number="13877837384"> niclas </name>
+<name email="bcxxxx@qq.com" number="13347837384"> chelsea</name>
+<name email="xuioxxx@qq.com" number="13876837884"> xiaom</name>
+<name email="xxmcaxx@qq.com" number="13877837384"> haha</name>
+<name email="xfafdxxx@qq.com" number="13877837384"> nihao </name>
+<name email="xxxx@hotmail.com" number="13877837384"> Nicy</name>
+<name email="xxxx@gmail.com" number="13877837384"> niclas </name>
 </owner>
 </begin>

@@ -1,4 +1,5 @@
 #-*- coding:utf-8 -*-
+
 from Tkinter import *
 import xml.etree.cElementTree as ET
 from login import whosLog,win
@@ -8,9 +9,9 @@ class EditButtons():
     fream = Frame(master)
     fream.pack()
 
-    self.AddBut = Button(fream, text='add', width=2)
+    self.AddBut = Button(fream, text='add', width=2, command=Add2xml)
     self.AddBut.pack(side = LEFT)
-    self.delBut = Button(fream, text='del', width=2)
+    self.delBut = Button(fream, text='del', width=2, command=deldata)
     self.delBut.pack(side = LEFT)
     self.modBut = Button(fream, text='mod', width=3)
     self.modBut.pack(side = LEFT)
@@ -44,8 +45,16 @@ def getDateFromxml(user):
          numbList.append((elem.text,elem.attrib['number']))
      return numbList
 
+def Add2xml():    #增加操作
+    import addGui 
+
+def deldata():    #删除操作
+    lstBox.delete(lstBox.curselection())  # 这是在列表上显示的时候删除
+
+
+
 mainWin = Tk()
-lstBox = Listbox(mainWin)
+lstBox = Listbox(mainWin, selectmode = MULTIPLE)
 # 这里是ListBox的填充内容
 listcont = getDateFromxml(whosLog)  # 这里传入从login里面获得的用户名
 lenFriend = len(getDateFromxml(whosLog)) +1
@@ -55,6 +64,7 @@ for i in range(1,lenFriend):
 lstBox.pack()
 
 ed = EditButtons(mainWin)
+
 print "whosLog: "+ whosLog + '\n'
 
 mainWin.title('Main')
