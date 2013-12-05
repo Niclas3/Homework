@@ -66,7 +66,7 @@ def CheckUser(name, pwd):
       if elem.text == name:
         if elem.attrib['password'] == pwd:
           whosLog = name
-          tkMessageBox.showinfo("wellcome.","O(∩_∩)O哈哈~·")
+          win.quit()
         else:
           tkMessageBox.showerror("Error ","请检查您的密码")
           whosLog = ' '
@@ -82,4 +82,3 @@ password = PassWord(win)   # 输入密码框
 Butt = OKBut(win)          # 确认按钮
 
 win.mainloop()
-

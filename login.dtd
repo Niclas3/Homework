@@ -1,0 +1,5 @@
+<!DOCTYPE user [
+      <!ELEMENT user (name, password)>
+      <!ELEMENT name (#PCDATA)> 
+      <!ELEMENT password(#PCDATA)>
+]>

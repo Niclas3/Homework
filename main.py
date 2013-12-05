@@ -1,7 +1,7 @@
 #-*- coding:utf-8 -*-
 from Tkinter import *
 import xml.etree.cElementTree as ET
-from login import whosLog
+from login import whosLog,win
 
 class EditButtons():
   def __init__(self, master):
@@ -45,7 +45,6 @@ def getDateFromxml(user):
      return numbList
 
 mainWin = Tk()
-
 lstBox = Listbox(mainWin)
 # 这里是ListBox的填充内容
 listcont = getDateFromxml(whosLog)  # 这里传入从login里面获得的用户名

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE user SYSTEM "login.dtd">
 <user>
-  <name password = '1'>n</name>
+  <name password = '1'>niclas</name>
 
-  <name password = '2'>c</name>
+  <name password = '2'>chelsea</name>
 
   <name password = '3'>z</name>
 
