@@ -1,4 +1,5 @@
 #-*- coding:utf-8 -*-
+import tkMessageBox
 
 from Tkinter import *
 import xml.etree.cElementTree as ET
@@ -46,27 +47,58 @@ def getDateFromxml(user):
      return numbList
 
 def Add2xml():    #增加操作
-    import addGui
-    reload(addGui)
+    from addGui import AddGui
+    def setFriends():   #在这个函数里面写xml
+      friendname  = nameEntry.entry.get()
+      friendnumb  = numbEntry.entry.get()
+      friendemail = emailEntry.entry.get()
+    
+      tree = ET.ElementTree(file='./data.xml')
+      root = tree.getroot()
+      owner = whosLog#'niclas'    #这里需要在main.py里面获得
+      print owner
+      for branch in root:
+        if branch.attrib['name'] == owner:
+          adder = ET.SubElement(branch,'name')
+          adder.text = friendname
+          if friendemail!=None and friendnumb!=None: #确保存入的数据不是空数据
+            adder.attrib={'email':friendemail,'number':friendnumb}
+            tree.write('./data.xml')
+            #addNumber2list(lenFriend)
+      main.destroy()   #在这里表示确定写入文件之后关闭窗口
+
+    main = Tk()
+    main.title('Add friend')
+    nameEntry  = AddGui(main, 'name')
+    numbEntry  = AddGui(main, 'numb')
+    emailEntry = AddGui(main, 'e-mail')
+    
+    subBut = Button(main, text='Sub', width=12, command = setFriends)
+    subBut.pack()
 
 def deldata():    #删除操作
-    lstBox.delete(lstBox.curselection())  # 这是在列表上显示的时候删除
+    #tkMessageBox.showinfo("show delete", lstBox.get(lstBox.curselection()))
+    print lstBox.get(lstBox.curselection()[0]).split('\t')[1] # 得到电话到xml匹配
+    
+    #lstBox.delete(lstBox.curselection())  # 这是在列表上显示的时候删除
 
-mainWin = Tk()
-lstBox = Listbox(mainWin, selectmode = MULTIPLE)
-# 这里是ListBox的填充内容
-listcont = getDateFromxml(whosLog)  # 这里传入从login里面获得的用户名
-lenFriend = len(getDateFromxml(whosLog)) +1
-
-for i in range(1,lenFriend):
-  lstBox.insert(i,str(listcont[i-1][0])+"\t"+str(listcont[i-1][1]))
-lstBox.pack()
-
-ed = EditButtons(mainWin)
-
-print "whosLog: "+ whosLog + '\n'
-
-mainWin.title('Main')
-mainWin.geometry('200x300')
-
-mainWin.mainloop()
+if whosLog != ' ':  # 判断有无用户登录
+  mainWin = Tk()
+  # 这里是ListBox的填充内容
+  listcont = getDateFromxml(whosLog)  # 这里传入从login里面获得的用户名
+  lenFriend = len(getDateFromxml(whosLog)) +1
+  
+  lstBox = Listbox(mainWin)#, selectmode = MULTIPLE)
+  
+  for i in range(1,lenFriend):
+    lstBox.insert(i,str(listcont[i-1][0])+"\t"+str(listcont[i-1][1]))
+  lstBox.pack()
+  
+  ed = EditButtons(mainWin)
+  
+  print "whosLog: "+ whosLog + '\n'
+  
+  mainWin.title('Main')
+  mainWin.geometry('200x300')
+  
+  mainWin.mainloop()

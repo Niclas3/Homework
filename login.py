@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET  #使用ElementTree来遍历xml文件方面�
 import tkMessageBox
 from whosLog import *
 
-whosLog = 'niclas' # 接收成功登陆的用户的用户名
+whosLog = ' '#'niclas' # 接收成功登陆的用户的用户名
 
 def setwhosLog(name):
   global whosLog
@@ -40,7 +40,7 @@ class OKBut():
     self.butOK = Button(frame, text="OK", width=5, command=getInfo)
     self.butOK.pack(side=LEFT)
     
-    self.butCancel = Button(frame, text="Cancel", width=5, command=master.quit)
+    self.butCancel = Button(frame, text="Cancel", width=5, command=master.destroy)
     self.butCancel.pack(side=LEFT)
 
 def getInfo():    #获得用户名和密码
@@ -67,7 +67,7 @@ def CheckUser(name, pwd):
       if elem.text == name:
         if elem.attrib['password'] == pwd:
           whosLog = name
-          win.quit()
+          win.destroy()
         else:
           tkMessageBox.showerror("Error ","请检查您的密码")
           whosLog = ' '

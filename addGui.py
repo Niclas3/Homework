@@ -11,6 +11,7 @@ class AddGui():
     self.namelab.pack(side = LEFT)
     self.entry = Entry(fream, width=15)
     self.entry.pack(side = RIGHT)
+
 def setFriends():   #在这个函数里面写xml
   friendname  = nameEntry.entry.get()
   friendnumb  = numbEntry.entry.get()
@@ -25,18 +26,17 @@ def setFriends():   #在这个函数里面写xml
       adder.text = friendname
       adder.attrib={'email':friendemail,'number':friendnumb}
       tree.write('./data.xml')
+  main.destroy()   #在这里表示确定写入文件之后关闭窗口
 
   print friendname, friendnumb, friendemail
-
-main = Tk()
-main.title('Add friend')
-nameEntry  = AddGui(main, 'name')
-numbEntry  = AddGui(main, 'numb')
-emailEntry = AddGui(main, 'e-mail')
-
-subBut = Button(main, text='Sub', width=12, command = setFriends)
-subBut.pack()
-
-main.mainloop()
-
-
+if __name__ == '__main__':
+  main = Tk()
+  main.title('Add friend')
+  nameEntry  = AddGui(main, 'name')
+  numbEntry  = AddGui(main, 'numb')
+  emailEntry = AddGui(main, 'e-mail')
+  
+  subBut = Button(main, text='Sub', width=12, command = setFriends)
+  subBut.pack()
+  
+  main.mainloop()
