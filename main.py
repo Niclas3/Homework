@@ -77,8 +77,30 @@ def Add2xml():    #增加操作
     subBut.pack()
 
 def deldata():    #删除操作
+    deltulpe  = lstBox.get(lstBox.curselection()[0]).split('\t')
+    delname   = deltulpe[0]   # 获得第一个字符串是名字
+    delnumber = deltulpe[1]   # 获得手机号
+    #delnumber = lstBox.get(lstBox.curselection()[0]).split('\t')[1] # 得到电话到xml匹配
+    print deltulpe
+    tree = ET.ElementTree(file='./data.xml')
+    root = tree.getroot()
+    
+    for i, item in enumerate(root):
+      if item.attrib['name'] == whosLog:   #这是判断是哪个用户登录的
+        print i, '是%s' % whosLog     # 用i来判断这是第几个用户
+        for j, item in enumerate(root[i]):          #遍历xml文件查找手机好为选择号码的数据
+          #print type(item.attrib['number']), item.attrib['number'], 'delnumber: '+delnumber,item.attrib['number'] == delnumber
+          if item.attrib['number'] == delnumber: # 找到相匹配的字符 这里建议用姓名+号码的方法确定
+            print i, j
+            del root[i][j]         # 用list定位目标记录
+            Uecho = tkMessageBox.askyesnocancel('ARE YOU SURE', 'TO del %s\'s number???? ' % delname, ) #增加用户体验
+            if Uecho == True:
+              tree.write('./data.xml')  # 删除文件 （把xml文件重写）
+            else :
+              tkMessageBox.showinfo('Message', 'Abort')
+            #print item.tag, item.attrib
+    
     #tkMessageBox.showinfo("show delete", lstBox.get(lstBox.curselection()))
-    print lstBox.get(lstBox.curselection()[0]).split('\t')[1] # 得到电话到xml匹配
     
     #lstBox.delete(lstBox.curselection())  # 这是在列表上显示的时候删除
 
